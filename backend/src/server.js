@@ -4,7 +4,9 @@ import { connectDB } from "./lib/db.js";
 import cors from "cors";
 import { serve } from "inngest/express";
 import { inngest, functions } from "./lib/inngest.js";
+import path from "path";
 
+const __dirname = path.resolve();
 const app = express();
 app.use(express.json());
 app.use(
@@ -24,6 +26,12 @@ app.use(
 app.get("/health", (req, res) => {
   res.status(200).json({ msg: "Api is up and running" });
 });
+if (ENV.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend", "dist")));
+  app.get("/{*any}", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+  });
+}
 
 const startServer = async () => {
   try {
