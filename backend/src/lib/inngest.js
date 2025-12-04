@@ -1,5 +1,6 @@
 import { Inngest } from "inngest";
 import User from "../models/User.js";
+import connectDB from "./db.js";
 
 export const inngest = new Inngest({
   id: "talent-meet",
