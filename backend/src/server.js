@@ -5,6 +5,8 @@ import cors from "cors";
 import { serve } from "inngest/express";
 import { inngest, functions } from "./lib/inngest.js";
 import path from "path";
+import { clerkMiddleware } from "@clerk/express";
+import chatRoutes from "./routes/chatRoutes.js";
 
 const __dirname = path.resolve();
 const app = express();
@@ -22,10 +24,13 @@ app.use(
     functions: functions,
   })
 );
+app.use(clerkMiddleware()); // adds auth field to req object: req.auth()
 
 app.get("/health", (req, res) => {
-  res.status(200).json({ msg: "Api is up and running" });
+  res.status(200).json({ message: "Api is up and running" });
 });
+app.use("/api/chat", chatRoutes);
+
 if (ENV.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend", "dist")));
   app.get("/{*any}", (req, res) => {
