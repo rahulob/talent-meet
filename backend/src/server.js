@@ -7,6 +7,7 @@ import { inngest, functions } from "./lib/inngest.js";
 import path from "path";
 import { clerkMiddleware } from "@clerk/express";
 import chatRoutes from "./routes/chatRoutes.js";
+import sessionRoutes from "./routes/sessionRoutes.js";
 
 const __dirname = path.resolve();
 const app = express();
@@ -30,6 +31,7 @@ app.get("/health", (req, res) => {
   res.status(200).json({ message: "Api is up and running" });
 });
 app.use("/api/chat", chatRoutes);
+app.use("/api/session", sessionRoutes);
 
 if (ENV.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend", "dist")));
