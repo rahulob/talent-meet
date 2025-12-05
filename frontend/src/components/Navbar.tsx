@@ -15,8 +15,6 @@ import {
 function Navbar() {
   const location = useLocation();
 
-  console.log(location);
-
   const isActive = (path: string) => location.pathname === path;
 
   return (
@@ -27,12 +25,12 @@ function Navbar() {
           to="/"
           className="group flex items-center gap-3 hover:scale-105 transition-transform duration-200"
         >
-          <div className="size-10 rounded-xl bg-gradient-to-r from-primary via-secondary to-accent flex items-center justify-center shadow-lg ">
+          <div className="size-10 rounded-xl bg-linear-to-r from-primary via-secondary to-accent flex items-center justify-center shadow-lg ">
             <SparklesIcon className="size-6 text-white" />
           </div>
 
           <div className="flex flex-col">
-            <span className="font-black text-xl bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent font-mono tracking-wider">
+            <span className="font-black text-xl bg-linear-to-r from-primary via-secondary to-accent bg-clip-text text-transparent font-mono tracking-wider">
               Talent IQ
             </span>
             <span className="text-xs text-base-content/60 font-medium -mt-1">
@@ -43,7 +41,7 @@ function Navbar() {
         {/* AUTH BTN */}
         <SignedOut>
           <SignInButton mode="modal">
-            <button className="group px-6 py-3 bg-gradient-to-r from-primary to-secondary rounded-xl text-white font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 flex items-center gap-2">
+            <button className="group px-6 py-3 bg-linear-to-r from-primary to-secondary rounded-xl text-white font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 flex items-center gap-2">
               <span>Get Started</span>
               <ArrowRightIcon className="size-4 group-hover:translate-x-0.5 transition-transform" />
             </button>
@@ -69,7 +67,7 @@ function Navbar() {
               </div>
             </Link>
 
-            {/* DASHBORD PAGE LINK */}
+            {/* DASHBOARD PAGE LINK */}
             <Link
               to={"/dashboard"}
               className={`px-4 py-2.5 rounded-lg transition-all duration-200 
@@ -83,7 +81,7 @@ function Navbar() {
             >
               <div className="flex items-center gap-x-2.5">
                 <LayoutDashboardIcon className="size-4" />
-                <span className="font-medium hidden sm:inline">Dashbord</span>
+                <span className="font-medium hidden sm:inline">Dashboard</span>
               </div>
             </Link>
 

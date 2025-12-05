@@ -48,7 +48,7 @@ function ProblemsPage() {
                         <div className="flex items-center gap-2 mb-1">
                           <h2 className="text-xl font-bold">{problem.title}</h2>
                           <span
-                            className={`badge ${getDifficultyBadgeClass(
+                            className={`badge badge-sm ${getDifficultyBadgeClass(
                               problem.difficulty
                             )}`}
                           >

@@ -42,19 +42,19 @@ function HomePage() {
 
             {/* FEATURE PILLS */}
             <div className="flex flex-wrap gap-3">
-              <div className="badge badge-lg badge-outline">
+              <div className="badge badge-md badge-outline">
                 <CheckIcon className="size-4 text-success" />
                 Live chat
               </div>
-              <div className="badge badge-lg badge-outline">
+              <div className="badge badge-md badge-outline">
                 <CheckIcon className="size-4 text-success" />
                 Video Call
               </div>
-              <div className="badge badge-lg badge-outline">
+              <div className="badge badge-md badge-outline">
                 <CheckIcon className="size-4 text-success" />
                 Code Editor
               </div>
-              <div className="badge badge-lg badge-outline">
+              <div className="badge badge-md badge-outline">
                 <CheckIcon className="size-4 text-success" />
                 Multi-Language
               </div>
@@ -63,11 +63,9 @@ function HomePage() {
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4">
               <SignedIn>
-                <Link to="/problems">
-                  <button className="btn btn-primary btn-lg">
-                    Start Coding Now
-                    <ArrowRightIcon className="size-5" />
-                  </button>
+                <Link to="/problems" className="btn btn-primary btn-lg">
+                  Start Coding Now
+                  <ArrowRightIcon className="size-5" />
                 </Link>
               </SignedIn>
               <SignedOut>
@@ -79,10 +77,10 @@ function HomePage() {
                 </SignInButton>
               </SignedOut>
 
-              <button className="btn btn-outline btn-lg">
+              {/* <button className="btn btn-outline btn-lg">
                 <VideoIcon className="size-5" />
                 Watch Demo
-              </button>
+              </button> */}
             </div>
 
             {/* STATS */}
