@@ -339,22 +339,22 @@ export const PROBLEMS = {
         java: "49\n1",
       },
     },
-  };
+  } as Record<string, any>;
   
-  export const LANGUAGE_CONFIG = {
-    javascript: {
-      name: "JavaScript",
-      icon: "/javascript.png",
-      monacoLang: "javascript",
-    },
-    python: {
-      name: "Python",
-      icon: "/python.png",
-      monacoLang: "python",
-    },
-    java: {
-      name: "Java",
-      icon: "/java.png",
-      monacoLang: "java",
-    },
-  };
+export const LANGUAGE_CONFIG = {
+  javascript: {
+    name: "JavaScript",
+    icon: "/javascript.png",
+    monacoLang: "javascript",
+  },
+  python: {
+    name: "Python",
+    icon: "/python.png",
+    monacoLang: "python",
+  },
+  java: {
+    name: "Java",
+    icon: "/java.png",
+    monacoLang: "java",
+  },
+}as Record<string, any>;
