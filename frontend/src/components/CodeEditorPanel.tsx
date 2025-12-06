@@ -2,7 +2,7 @@ import Editor from "@monaco-editor/react";
 import { Loader2Icon, PlayIcon } from "lucide-react";
 import { LANGUAGE_CONFIG } from "../data/problems";
 
-function CodeEditor({
+function CodeEditorPanel({
   selectedLanguage,
   code,
   isRunning,
@@ -70,4 +70,4 @@ function CodeEditor({
     </div>
   );
 }
-export default CodeEditor;
+export default CodeEditorPanel;
