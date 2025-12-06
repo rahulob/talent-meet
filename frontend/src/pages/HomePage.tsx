@@ -17,7 +17,7 @@ function HomePage() {
       <Navbar />
 
       {/* HERO SECTION */}
-      <div className="max-w-7xl mx-auto px-4 py-20">
+      <div className="max-w-md md:max-w-2xl lg:max-w-6xl mx-auto px-4 pt-20">
         <div className="flex flex-col md:flex-row gap-8 items-center">
           {/* LEFT CONTENT */}
           <div className="space-y-4">
@@ -63,7 +63,7 @@ function HomePage() {
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4">
               <SignedIn>
-                <Link to="/problems" className="btn btn-primary btn-lg">
+                <Link to="/dashboard" className="btn btn-primary btn-lg">
                   Start Coding Now
                   <ArrowRightIcon className="size-5" />
                 </Link>
@@ -76,15 +76,10 @@ function HomePage() {
                   </button>
                 </SignInButton>
               </SignedOut>
-
-              {/* <button className="btn btn-outline btn-lg">
-                <VideoIcon className="size-5" />
-                Watch Demo
-              </button> */}
             </div>
 
             {/* STATS */}
-            <div className="stats bg-base-100 shadow-lg">
+            {/* <div className="stats bg-base-100 shadow-lg">
               <div className="stat">
                 <div className="stat-value text-primary">10K+</div>
                 <div className="stat-title">Active Users</div>
@@ -97,7 +92,7 @@ function HomePage() {
                 <div className="stat-value text-accent">99.9%</div>
                 <div className="stat-title">Uptime</div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* RIGHT IMAGE */}
@@ -118,7 +113,7 @@ export default HomePage;
 
 function FeaturesGrid() {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-20">
+    <div className="max-w-md md:max-w-7xl mx-auto px-4 py-20">
       <div className="text-center mb-16">
         <h2 className="text-4xl font-bold mb-4">
           Everything You Need to{" "}
