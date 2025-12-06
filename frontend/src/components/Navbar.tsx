@@ -49,24 +49,6 @@ function Navbar() {
         </SignedOut>
         <SignedIn>
           <div className="flex items-center gap-1">
-            {/* PROBLEMS PAGE LINK */}
-            <Link
-              to={"/problems"}
-              className={`px-4 py-2.5 rounded-lg transition-all duration-200 
-              ${
-                isActive("/problems")
-                  ? "bg-primary text-primary-content"
-                  : "hover:bg-base-200 text-base-content/70 hover:text-base-content"
-              }
-              
-              `}
-            >
-              <div className="flex items-center gap-x-2.5">
-                <BookOpenIcon className="size-4" />
-                <span className="font-medium hidden sm:inline">Problems</span>
-              </div>
-            </Link>
-
             {/* DASHBOARD PAGE LINK */}
             <Link
               to={"/dashboard"}
@@ -74,7 +56,7 @@ function Navbar() {
               ${
                 isActive("/dashboard")
                   ? "bg-primary text-primary-content"
-                  : "hover:bg-base-200 text-base-content/70 hover:text-base-content"
+                  : "bg-base-200 hover:bg-base-300 text-base-content/70 hover:text-base-content"
               }
               
               `}
@@ -82,6 +64,24 @@ function Navbar() {
               <div className="flex items-center gap-x-2.5">
                 <LayoutDashboardIcon className="size-4" />
                 <span className="font-medium hidden sm:inline">Dashboard</span>
+              </div>
+            </Link>
+
+            {/* PROBLEMS PAGE LINK */}
+            <Link
+              to={"/problems"}
+              className={`px-4 py-2.5 rounded-lg transition-all duration-200 
+              ${
+                isActive("/problems")
+                  ? "bg-primary text-primary-content"
+                  : "bg-base-200 hover:bg-base-300 text-base-content/70 hover:text-base-content"
+              }
+              
+              `}
+            >
+              <div className="flex items-center gap-x-2.5">
+                <BookOpenIcon className="size-4" />
+                <span className="font-medium hidden sm:inline">Problems</span>
               </div>
             </Link>
 
