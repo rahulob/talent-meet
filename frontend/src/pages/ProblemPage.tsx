@@ -13,9 +13,13 @@ export default function ProblemPage() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [problemId, setProblemId] = useState("two-sum");
+  const [problemId, setProblemId] = useState(
+    id && PROBLEMS[id] ? id : "two-sum"
+  );
   const [selectedLanguage, setSelectedLanguage] = useState("javascript");
-  const [code, setCode] = useState(PROBLEMS[problemId].starterCode.javascript);
+  const [code, setCode] = useState(
+    PROBLEMS[problemId]?.starterCode?.[selectedLanguage] || ""
+  );
   const [output, setOutput] = useState<any>(null);
   const [isRunning, setIsRunning] = useState(false);
 
@@ -37,7 +41,7 @@ export default function ProblemPage() {
       const normalizedActual = normalizeOutput(actualOutput);
       const normalizedExpected = normalizeOutput(expectedOutput);
 
-      return normalizedActual == normalizedExpected;
+      return normalizedActual === normalizedExpected;
     };
     if (result.success) {
       const expectedOutput = currentProblem.expectedOutput[selectedLanguage];
@@ -56,7 +60,12 @@ export default function ProblemPage() {
 
   // update problem when URL param changes
   useEffect(() => {
-    if (id && PROBLEMS[id]) {
+    if (id) {
+      if (!PROBLEMS[id]) {
+        toast.error("Problem not found");
+        navigate("/problem/two-sum");
+        return;
+      }
       setProblemId(id);
       setCode(PROBLEMS[id].starterCode[selectedLanguage]);
       setOutput(null);
@@ -65,6 +74,10 @@ export default function ProblemPage() {
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newLang = e.target.value;
+    if (!currentProblem.starterCode?.[newLang]) {
+      toast.error(`Language ${newLang} not supported for this problem`);
+      return;
+    }
     setSelectedLanguage(newLang);
     setCode(currentProblem.starterCode[newLang]);
     setOutput(null);
@@ -72,20 +85,6 @@ export default function ProblemPage() {
 
   const handleProblemChange = (newProblemId: string) =>
     navigate(`/problem/${newProblemId}`);
-
-  //   const triggerConfetti = () => {
-  //     confetti({
-  //       particleCount: 80,
-  //       spread: 250,
-  //       origin: { x: 0.2, y: 0.6 },
-  //     });
-
-  //     confetti({
-  //       particleCount: 80,
-  //       spread: 250,
-  //       origin: { x: 0.8, y: 0.6 },
-  //     });
-  //   };
 
   const normalizeOutput = (output: string) => {
     // normalize output for comparison (trim whitespace, handle different spacing)
@@ -118,7 +117,7 @@ export default function ProblemPage() {
           />
         </Panel>
 
-        {/* Resize hanle */}
+        {/* Resize handle */}
         <PanelResizeHandle className="w-2 flex items-center justify-center bg-base-300">
           <div className="w-1 h-8 bg-white/50 rounded-xl hover:bg-primary transition-colors" />
         </PanelResizeHandle>
@@ -137,7 +136,7 @@ export default function ProblemPage() {
               />
             </Panel>
 
-            {/* Resize hanle */}
+            {/* Resize handle */}
             <PanelResizeHandle className="h-2 flex items-center justify-center bg-base-300">
               <div className="w-8 h-1 bg-white/50 rounded-xl hover:bg-primary transition-colors" />
             </PanelResizeHandle>

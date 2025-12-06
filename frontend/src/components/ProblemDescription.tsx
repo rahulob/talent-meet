@@ -5,7 +5,7 @@ function ProblemDescription({
   onProblemChange,
   allProblems,
 }: any) {
-  if (!problem) return;
+  if (!problem) return null;
   return (
     <div className="h-full overflow-y-auto bg-base-200">
       {/* HEADER SECTION */}
@@ -45,7 +45,7 @@ function ProblemDescription({
 
           <div className="space-y-3 text-base leading-relaxed">
             <p className="text-base-content/90">{problem.description.text}</p>
-            {problem.description.notes.map(({ note, idx }: any) => (
+            {problem.description.notes.map((note: string, idx: number) => (
               <p key={idx} className="text-base-content/90">
                 {note}
               </p>
